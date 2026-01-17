@@ -4,7 +4,7 @@ namespace App\Modules\General\Infrastructure\Persistence\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class CategoryModel extends Model
 {
     /**
      * SQL Server schema-qualified table.

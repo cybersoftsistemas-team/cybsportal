@@ -4,7 +4,7 @@ namespace App\Modules\General\Domain\Entities;
 
 final class CategoryEntity extends Entity
 {
-    private function __construct(
+    protected function __construct(
         private string $id, 
         private string $name, 
         private bool $reserved, 
