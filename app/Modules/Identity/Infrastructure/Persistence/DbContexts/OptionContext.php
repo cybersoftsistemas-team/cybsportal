@@ -4,24 +4,24 @@ namespace App\Modules\Identity\Infrastructure\Persistence\DbContexts;
 
 use App\Shared\Infrastructure\Persistence\DbContexts\DbContext;
 
-class Setting extends DbContext
+final class OptionContext extends DbContext
 {
     /**
      * The table associated with the model.
-     * 
+     *
      * SQL Server schema-qualified table.
      * Ex.: [schemaName].[tableName].
      *
      * @var string|null
      */
-    protected $table = 'identity.settings';
+    protected $table = 'identity.options';
 
     /**
-     * The primary keys for the model.
+     * The primary key for the model.
      *
-     * @var array
+     * @var string
      */
-    protected $primaryKeys = ['UserId', 'OptionId'];
+    protected $primaryKey = 'Id';
 
     /**
      * The "type" of the primary key ID.
@@ -29,29 +29,13 @@ class Setting extends DbContext
      * @var string
      */
     protected $keyType = 'string';
-    
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
 
     /**
      * Mass assignment.
      */
     protected $fillable = [
-        'UserId',
-        'OptionId',
-        'Checked',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'Checked' => 'boolean',
+        'Id',
+        'Name',
+        'Description',
     ];
 }

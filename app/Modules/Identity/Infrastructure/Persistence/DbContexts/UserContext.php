@@ -4,27 +4,31 @@ namespace App\Modules\Identity\Infrastructure\Persistence\DbContexts;
 
 use App\Shared\Infrastructure\Persistence\DbContexts\DbContext;
 
-class User extends DbContext
+final class UserContext extends DbContext
 {
     /**
+     * The table associated with the model.
+     *
      * SQL Server schema-qualified table.
-     * Ex.: identity.users
+     * Ex.: [schemaName].[tableName].
+     *
+     * @var string|null
      */
     protected $table = 'identity.users';
 
     /**
-     * PK é UUID e não auto-incrementa.
+     * The primary key for the model.
+     *
+     * @var string
      */
     protected $primaryKey = 'Id';
-    public $incrementing = false;
-    protected $keyType = 'string';
 
     /**
-     * Ajuste de timestamps:
-     * - Se sua tabela NÃO tiver created_at/updated_at, deixe false.
-     * - Se tiver, mude para true.
+     * The "type" of the primary key ID.
+     *
+     * @var string
      */
-    public $timestamps = false;
+    protected $keyType = 'string';
 
     /**
      * Mass assignment.
@@ -56,6 +60,5 @@ class User extends DbContext
         'AccountBlockedOut'  => 'boolean',
         'Reserved'           => 'boolean',
         'AccountExpiresDate' => 'datetime',
-        'Password'           => 'hashed',
     ];
 }
