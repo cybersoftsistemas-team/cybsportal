@@ -2,8 +2,6 @@
 
 namespace App\Modules\General\Infrastructure\Persistence\Seeders;
 
-use App\Modules\General\Domain\Entities\CategoryEntity;
-use App\Shared\Infrastructure\Persistence\Categories;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -12,20 +10,12 @@ class AddressesSeeder extends Seeder
     public function run(): void
     {
         DB::transaction(function () {
-            $category = $this->tryCreateAddress('4F8A1A7E-DC1E-4BD8-B2CB-0E2DF4F8A9C1', 'Addresses', null);
-            $this->tryCreateAddress('9E7C5DA2-54C1-49B3-91C5-51CA7BE8F24A', 'Address', $category->Id());
-            $this->tryCreateAddress('F1BD5F43-86DD-4AC3-93D3-6C9AF1C7A82E', 'Address 2', $category->Id());
-            $this->tryCreateAddress('A0F42F11-97AA-4BB2-BF4A-E4539960D715', 'Outro', $category->Id());
+            $root = RegisterCategoriesSeeder::saveIfNotExists('9C4A9BCB-2E8B-4E2D-9B61-7B0C2C3B2E44', 'Endereço', null);
+            if ($root) {
+                RegisterCategoriesSeeder::saveIfNotExists('2A1A3C4D-8EFA-41C4-9F72-3B77A6D2D1C5', 'Comercial', $root->id());
+                RegisterCategoriesSeeder::saveIfNotExists('7E2F6BD1-1F73-4DA3-9248-81B2B278D9A6', 'Residencial', $root->id());
+                RegisterCategoriesSeeder::saveIfNotExists('B54E0D9F-1881-4C23-8396-2EF71C4499FB', 'Outro', $root->id());
+            }
         });
-    }
-
-    private function tryCreateAddress(string $id, string $name, ?string $parentId): CategoryEntity
-    {
-        return Categories::create(
-            $id,
-            $name,
-            $parentId,
-            true,
-        );
     }
 }

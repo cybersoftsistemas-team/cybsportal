@@ -1,11 +1,18 @@
 <?php
 
-namespace App\Modules\General\Domain\Entities;
+namespace App\Shared\Domain\Entities;
 
-class Entity
+abstract class Entity
 {
     protected function __construct()
     {
         // Base entity constructor logic (if any)
     }
+
+    /**
+     * Convert the entity to an associative array for persistence.
+     * 
+     * @return array
+     */
+    abstract public function toData(): array;
 }
