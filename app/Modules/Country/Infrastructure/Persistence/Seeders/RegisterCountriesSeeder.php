@@ -9,7 +9,6 @@ use App\Modules\Country\Domain\Entities\Nationality;
 use App\Modules\Country\Infrastructure\Persistence\Repositories\CountryCodeRepository;
 use App\Modules\Country\Infrastructure\Persistence\Repositories\CountryRepository;
 use App\Modules\Country\Infrastructure\Persistence\Repositories\NationalityRepository;
-use App\Modules\Country\Infrastructure\Persistence\Seeders\BrazilCountryCodeSeeder;
 use App\Modules\Country\Infrastructure\Persistence\Seeders\BrazilCountrySeeder;
 use Illuminate\Database\Seeder;
 
@@ -22,8 +21,6 @@ class RegisterCountriesSeeder extends Seeder
     {
         $this->call([
             BrazilCountrySeeder::class,
-            BrazilCountryCodeSeeder::class,
-            BrazilNationalitySeeder::class,
             BrazilStatesSeeder::class,
         ]);
     }

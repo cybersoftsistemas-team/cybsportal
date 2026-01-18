@@ -20,6 +20,23 @@ class BrazilCountrySeeder extends Seeder
                 areaCode: 55,
             );
 
+            // Nationality
+            RegisterCountriesSeeder::saveNationality(
+                       id: 'D1FB0359-322F-487C-8328-23853184902B',
+                     name: 'Brasileiro',
+                countryId: $country->id(),
+            );
+
+            // Country Codes
+            RegisterCountriesSeeder::saveCountryCodeIfNotExists(
+                     iso2: 'BR',
+                     iso3: 'BRA',
+                  numeric: '076',
+                     ibge: '1058',
+                    bacen: '076',
+                countryId: $country->id(),
+            );
+
             app()->instance('seed.countryId', $country->id());
         });
     }
