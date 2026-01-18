@@ -21,7 +21,7 @@ return new class extends Migration
             // Columns...
             $table->uuid('Id')->default(DB::raw('NEWID()'));
             $table->string('Name', 255);
-            $table->boolean('Reserved')->default(false); // Reservado
+            $table->boolean('Reserved')->default(DB::raw(0)); // Reservado
             $table->uuid('ManagedById')->nullable(); // Gerenciado Por
             $table->uuid('ParentId')->nullable(); // Domínio Pai
 

@@ -18,7 +18,7 @@ return new class extends Migration
             // Columns...
             $table->uuid('Id')->default(DB::raw('NEWID()'));
             $table->string('Name', 255);
-            $table->integer('AreaCode')->default(0);
+            $table->integer('AreaCode')->default(DB::raw(0));
             $table->uuid('StateId');
 
             // Primary Key...

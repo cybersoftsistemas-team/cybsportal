@@ -19,9 +19,9 @@ return new class extends Migration
             $table->uuid('Id')->default(DB::raw('NEWID()'));
             $table->string('Name', 255); // Nome de usuário
             $table->longText('Description'); // Descrição
-            $table->boolean('AccountBlockedOut')->default(false); // Conta Bloqueada
+            $table->boolean('AccountBlockedOut')->default(DB::raw(0)); // Conta Bloqueada
             $table->dateTime('AccountExpiresDate')->nullable(); // Data de Expiração da Conta
-            $table->boolean('Reserved')->default(false); // Reservado
+            $table->boolean('Reserved')->default(DB::raw(0)); // Reservado
             $table->string('Password', 255); // Senha
             $table->uuid('PersonId')->nullable(); // Pessoa
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -17,7 +18,7 @@ return new class extends Migration
             // Columns...
             $table->uuid('DomainId'); // Domínio
             $table->uuid('UserId'); // Usuário
-            $table->boolean('Reserved')->default(false); // Reservado
+            $table->boolean('Reserved')->default(DB::raw(0)); // Reservado
 
             // Primary Key...
             $table->primary(['DomainId', 'UserId']);

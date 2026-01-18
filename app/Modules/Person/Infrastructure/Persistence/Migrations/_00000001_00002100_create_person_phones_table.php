@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -17,7 +18,7 @@ return new class extends Migration
             // Columns...
             $table->uuid('PersonId'); // Pessoa
             $table->uuid('TypeId'); // Tipo de Endereço
-            $table->integer('Number')->default(0); // Número do Telefone
+            $table->integer('Number')->default(DB::raw(0)); // Número do Telefone
             $table->uuid('CityId'); // Cidade
 
             // Primary Key...
