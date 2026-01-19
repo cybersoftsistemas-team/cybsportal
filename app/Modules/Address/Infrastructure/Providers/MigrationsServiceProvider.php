@@ -2,7 +2,7 @@
 
 namespace App\Modules\Address\Infrastructure\Providers;
 
-use App\Modules\Shared\Infrastructure\Providers\ModuleServiceProvider;
+use App\Shared\Infrastructure\Providers\ModuleServiceProvider;
 
 class MigrationsServiceProvider extends ModuleServiceProvider
 {
